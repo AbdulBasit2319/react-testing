@@ -2,23 +2,29 @@ import logo from './logo.svg';
 import React, { useState } from 'react';
 import './App.css';
 
+export const replaceCamelWithSoace = (colorName) => {
+  return colorName.replace(/\B([A-Z])\B/g ,' $1')
+
+}
+
 function App() {
-  const [buttonColor, setButtonColor] = useState('red');
+  const [buttonColor, setButtonColor] = useState('MediumVioletRed');
   const [disable, setDisable] = useState(false);
-  console.log(disable)
-  const newColorBUtton = buttonColor === 'red' ? 'blue' : 'red';
+  console.log(buttonColor)
+  const newColorBUtton = buttonColor === 'MediumVioletRed' ? 'MidnightBlue' : 'MediumVioletRed';
   return (
     <div className="App">
+      {/* {setDisable === true ? setButtonColor('grey'):} */}
       <button
         onClick={() => setButtonColor(newColorBUtton)}
-        style={{ backgroundColor: buttonColor }}
+        style={{ backgroundColor: disable ? 'gray' : buttonColor }}
         disabled={disable}
       >
-        Change to {newColorBUtton}
+        Change to {replaceCamelWithSoace(newColorBUtton)}
 
       </button>
       <input type='checkbox'
-        onChange={() => setDisable(true)}
+        onChange={(e) => setDisable(e.target.checked)}
       ></input>
     </div>
   );
