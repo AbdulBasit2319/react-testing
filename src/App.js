@@ -20,7 +20,7 @@ function App() {
         style={{ backgroundColor: disable ? 'gray' : buttonColor }}
         disabled={disable}
       >
-        Change to {replaceCamelWithSoace(newColorBUtton)}
+        Change to {replaceCamelWithSoace(newColorBUtton)} 
 
       </button>
       <input type='checkbox'
